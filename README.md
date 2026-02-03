@@ -1,6 +1,23 @@
 # Tes Programmer FastPrint - Manajemen Produk
-![Dashboard Screenshot](./table_dashboard.png)
 Aplikasi Fullstack Django untuk mengambil data produk dari API FastPrint, menyimpannya ke database lokal, dan mengelolanya melalui Web Interface.
+### Halaman Utama Tabel produk
+![Dashboard Screenshot](./table_dashboard.png)
+
+Di halaman utama menampilakn produk dengan status "bisa dijual"
+
+### Alert Konfirmasi Hapus Data
+
+![Dashboard Screenshot](./hapus.png)
+
+Alert digunakan untuk konfirmasi hapus data mencegah hapus data yang tidak sengaja, saya menggunakan library sweetAlert4 untuk mempercantik tampilan dari alert().
+
+### Tampilan From Tambah dan Edit Data
+
+![Dashboard Screenshot](./tambah_produk.png)
+![Dashboard Screenshot](./edit_produk.png)
+
+Untuk Validasi Form saya menggunakan fitur bawaan django forms, dan juga pada form input harga tidak boleh memasukkan nilai kurang dari 1.
+
 
 ## 🛠 Teknologi yang Digunakan
 * **Backend:** Python 3.10+, Django 5.x
@@ -54,6 +71,7 @@ python manage.py migrate
 ### Langkah 1: Tarik Data dari API yang disediakan
 Jalankan perintah custom berikut untuk mengisi database:
 ```bash
+cd firstproject
 python manage.py ambil_data
 ```
 Script akan menghubungi API, melakukan generate password dinamis, dan menyimpan data ke PostgreSQL.
