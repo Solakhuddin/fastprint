@@ -12,8 +12,10 @@ class Command(BaseCommand):
         day = now.strftime("%d")
         month = now.strftime("%m")
         year = now.strftime("%y")
-        
-        username = f"tesprogrammer{day}{month}{year}C13"
+        hour = now.strftime("%H")
+        suffix = f"C{hour}"
+
+        username = f"tesprogrammer{day}{month}{year}{suffix}"
         raw_password = f"bisacoding-{day}-{month}-{year}"
         password_md5 = hashlib.md5(raw_password.encode()).hexdigest()
 
