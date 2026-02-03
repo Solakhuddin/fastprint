@@ -1,0 +1,25 @@
+{
+  "error": 0,
+  "version": "220523.0.1",
+  "data": [
+    {
+      "no": "7",
+      "id_produk": "6",
+      "nama_produk": "ALCOHOL GEL POLISH CLEANSER GP-CLN01",
+      "kategori": "L QUEENLY",
+      "harga": "12500",
+      "status": "bisa dijual"
+    },
+    {
+      "no": "10",
+      "id_produk": "9",
+      "nama_produk": "ALUMUNIUM FOIL ALL IN ONE BULAT 23mm IM",
+      "kategori": "L MTH AKSESORIS (IM)",
+      "harga": "1000",
+      "status": "bisa dijual"
+    }
+  ]
+}
+User: tesprogrammer010226C13
+Pass (MD5): 6d009e76577c9396bfee7db08c817bcf
+

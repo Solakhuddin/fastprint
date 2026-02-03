@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tes Programmer - FastPrint</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .table img { border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Daftar Produk (Bisa Dijual)</h4>
+            <a href="{% url 'tambah_produk' %}" class="btn btn-light btn-sm">Tambah Produk</a>
+        </div>
+        <div class="card-body">
+            
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Produk</th>
+                            <th>Kategori</th>
+                            <th>Harga</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produk in produk_list %}
+                        <tr>
+                            <td>{{ produk.id_produk }}</td>
+                            <td>{{ produk.nama_produk }}</td>
+                            <td><span class="badge bg-info text-dark">{{ produk.kategori.nama_kategori }}</span></td>
+                            <td>Rp {{ produk.harga }}</td>
+                            <td><span class="badge bg-success">{{ produk.status.nama_status }}</span></td>
+                            <td>
+                                <a href="{% url 'edit_produk' produk.id_produk %}" class="btn btn-sm btn-warning">Edit</a>
+                                <button onclick="konfirmasiHapus('{{ produk.id_produk }}', '{{ produk.nama_produk }}')" 
+                                        class="btn btn-sm btn-danger">Hapus</button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">Tidak ada data produk yang bisa dijual.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function konfirmasiHapus(id, nama) {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Ingin menghapus produk: " + nama,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/hapus/" + id;
+            }
+        })
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
