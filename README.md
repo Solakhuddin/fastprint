@@ -7,7 +7,7 @@ Di halaman utama menampilakn produk dengan status "bisa dijual"
 
 ### Alert Konfirmasi Hapus Data
 
-![Dashboard Screenshot](./hapus.png)
+![Dashboard Screenshot](./hapus_data.png)
 
 Alert digunakan untuk konfirmasi hapus data mencegah hapus data yang tidak sengaja, saya menggunakan library sweetAlert4 untuk mempercantik tampilan dari alert().
 
