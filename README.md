@@ -62,7 +62,9 @@ pip install -r requirements.txt
 ### 4. Migrasi Database
 Lalu migrate database dengan menjalankan command
 ```bash
+cd firstproject
 python manage.py makemigrations
+python manage.py migrate --fake manajemen_produk zero # mohon jalankan perintah ini jika muncul string 'No changes detected' untuk melakukan reset migrasi database
 python manage.py migrate
 ```
 
@@ -71,7 +73,6 @@ python manage.py migrate
 ### Langkah 1: Tarik Data dari API yang disediakan
 Jalankan perintah custom berikut untuk mengisi database:
 ```bash
-cd firstproject
 python manage.py ambil_data
 ```
 Script akan menghubungi API, melakukan generate password dinamis, dan menyimpan data ke PostgreSQL.
